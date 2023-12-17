@@ -6,5 +6,5 @@ This project is a learning project to be familiar with Java and Java Swing.
 
 ## Environment
 
-IDEï¼šVistual Studio Code
-JDK versionï¼šJDK17.0.9
+IDE£ºVistual Studio Code
+JDK version£ºJDK17.0.9
