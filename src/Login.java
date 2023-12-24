@@ -3,6 +3,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
 
+/*
+ * 登录窗口
+ */
 public class Login extends JFrame {
     private static final long serialVersionUID = 1L;
 
@@ -108,7 +111,7 @@ public class Login extends JFrame {
         // 关闭Login窗口
         dispose();
         // 弹出Client窗口
-        new Client(SName, SAddress, iPort);
+        new ChatWindow(SName, SAddress, iPort);
     }
 
     public static void main(String[] args) {
