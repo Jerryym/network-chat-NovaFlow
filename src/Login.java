@@ -34,42 +34,64 @@ public class Login extends JFrame {
 
     // 初始化窗口
     private void InitWindow() {
+        // 设置字体
+        Font customFont = new Font("Consolas", Font.PLAIN, 12);
+
         // 名称
         JLabel Label_Name = new JLabel("Name:");
         Label_Name.setBounds(127, 34, 45, 16);
+        Label_Name.setFont(customFont);
         contPanel.add(Label_Name);
         Edit_Name = new JTextField();
         Edit_Name.setBounds(67, 50, 165, 28);
+        Edit_Name.setFont(customFont);
         contPanel.add(Edit_Name);
         Edit_Name.setColumns(10);
 
         // IP地址
         JLabel Label_Address = new JLabel("IP Address:");
-        Label_Address.setBounds(111, 96, 77, 16);
+        Label_Address.setBounds(111, 96, 80, 16);
+        Label_Address.setFont(customFont);
         contPanel.add(Label_Address);
         Edit_Address = new JTextField();
         Edit_Address.setBounds(67, 116, 165, 28);
+        Edit_Address.setFont(customFont);
         contPanel.add(Edit_Address);
         Edit_Address.setColumns(10);
         JLabel Label_AddressDesc = new JLabel("(eg. 192.168.0.2)");
-        Label_AddressDesc.setBounds(94, 142, 112, 16);
+        Label_AddressDesc.setBounds(90, 145, 120, 16);
+        Label_AddressDesc.setFont(customFont);
         contPanel.add(Label_AddressDesc);
 
         // 端口号
         JLabel Label_Port = new JLabel("Port:");
-        Label_Port.setBounds(133, 171, 34, 16);
+        Label_Port.setBounds(133, 171, 40, 16);
+        Label_Port.setFont(customFont);
         contPanel.add(Label_Port);
         Edit_Port = new JTextField();
         Edit_Port.setBounds(67, 191, 165, 28);
+        Edit_Port.setFont(customFont);
         contPanel.add(Edit_Port);
         Edit_Port.setColumns(10);
         JLabel Label_PortDesc = new JLabel("(eg. 8088)");
-        Label_PortDesc.setBounds(116, 218, 68, 16);
+        Label_PortDesc.setBounds(110, 222, 75, 16);
+        Label_PortDesc.setFont(customFont);
         contPanel.add(Label_PortDesc);
+        Edit_Port.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent event) {
+                if (event.getKeyCode() == KeyEvent.VK_ENTER) {
+                    String SName = Edit_Name.getText();
+                    String SAddress = Edit_Address.getText();
+                    int iPort = Integer.parseInt(Edit_Port.getText());
+                    login(SName, SAddress, iPort);
+                }
+            }
+        });
 
         // Login Button
         LoginBtn = new JButton("Log in");
-        LoginBtn.setBounds(91, 311, 117, 29);
+        LoginBtn.setBounds(91, 300, 117, 29);
+        LoginBtn.setFont(customFont);
         contPanel.add(LoginBtn);
         LoginBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -85,7 +107,8 @@ public class Login extends JFrame {
     private void login(String SName, String SAddress, int iPort) {
         // 关闭Login窗口
         dispose();
-        System.out.println(SName + ", " + SAddress + ", " + iPort);
+        // 弹出Client窗口
+        new Client(SName, SAddress, iPort);
     }
 
     public static void main(String[] args) {
