@@ -3,6 +3,8 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_ClientWindow.h"
 
+#include <QKeyEvent>
+
 class ClientWindow : public QMainWindow
 {
     Q_OBJECT
@@ -16,6 +18,9 @@ public:
 
 public slots:
     void SendMessage();
+
+protected:
+    void keyPressEvent(QKeyEvent* ev) override;
 
 private:
     Ui::ClientWindowClass ui;

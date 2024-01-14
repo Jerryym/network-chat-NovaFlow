@@ -271,6 +271,12 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>Edit_Name</tabstop>
+  <tabstop>Edit_IPAddr</tabstop>
+  <tabstop>Edit_Port</tabstop>
+  <tabstop>Button_Login</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

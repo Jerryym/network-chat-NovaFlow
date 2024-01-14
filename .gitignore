@@ -29,6 +29,7 @@ replay_pid*
 .vs/
 bin/
 bin-int/
+/*/x64
 
 # Files
 *.user
