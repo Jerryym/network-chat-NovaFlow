@@ -21,6 +21,7 @@ public slots:
 
 protected:
     void keyPressEvent(QKeyEvent* ev) override;
+    void Initialize();
 
 private:
     Ui::ClientWindowClass ui;

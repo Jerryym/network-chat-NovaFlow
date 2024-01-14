@@ -5,9 +5,7 @@ ClientWindow::ClientWindow(QWidget *parent)
 {
     ui.setupUi(this);
     setWindowTitle("NovaFlow");
-
-    ui.textEdit_chatHistory->setReadOnly(true);
-    ui.lineEdit->setFocus();
+    Initialize();
     connect(ui.Button_Send, SIGNAL(clicked()), this, SLOT(SendMessage()));
 }
 
@@ -18,6 +16,7 @@ void ClientWindow::SendMessage()
 {
     QString SMsg = ui.lineEdit->text();
     if (SMsg.isEmpty() == true)     return;
+    SMsg = m_SName + ": " + SMsg;
     ui.textEdit_chatHistory->append(SMsg);
     ui.lineEdit->clear();
 }
@@ -27,6 +26,9 @@ void ClientWindow::setLoginInfo(const QString & SName, const QString & SIPAddr, 
     m_SName = SName;
     m_SIPAddr = SIPAddr;
     m_nPort = nPort;
+
+    QString SMsg = QString("Attemping a connection to %1:%2, user: %3").arg(SIPAddr).arg(nPort).arg(SName);
+    ui.textEdit_chatHistory->append(SMsg);
 }
 
 void ClientWindow::keyPressEvent(QKeyEvent* ev)
@@ -35,4 +37,10 @@ void ClientWindow::keyPressEvent(QKeyEvent* ev)
     {
         SendMessage();
     }
+}
+
+void ClientWindow::Initialize()
+{
+    ui.textEdit_chatHistory->setReadOnly(true);
+    ui.lineEdit->setFocus();
 }

@@ -47,9 +47,6 @@ void LoginWidget::Initialize()
 {
 	ui.Edit_Name->setFocus();
 
-	QRegularExpression IPAddrregExp("^[0-9]+(\\.[0-9]+)?$");
-	ui.Edit_IPAddr->setValidator(new QRegularExpressionValidator(IPAddrregExp));
-
 	QRegularExpression PortregExp("^[0-9]*$");
 	ui.Edit_Port->setValidator(new QRegularExpressionValidator(PortregExp));
 }
