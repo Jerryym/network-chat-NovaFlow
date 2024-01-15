@@ -24,3 +24,12 @@ hs_err_pid*
 replay_pid*
 
 /Notes
+
+# Directories
+.vs/
+bin/
+bin-int/
+/*/x64
+
+# Files
+*.user
